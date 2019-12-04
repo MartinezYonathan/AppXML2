@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PartiPromo</string>
+    <string name="bienvenidos_a_la_app">Bienvenidos a la app</string>
+    <string name="party_promo">PARTY PROMO</string>
+    <string name="menu">Menu</string>
+    <string name="aqui_encontraras_los_eventos">Aqui encontraras los eventos</string>
 </resources>
