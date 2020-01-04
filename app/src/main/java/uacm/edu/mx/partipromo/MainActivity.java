@@ -4,18 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView bgapp, clover;
+    ImageView bgapp, clover,campana;
     LinearLayout textsplash, texthome, menus;
     Animation frombottom;
+    Button btnRegistrar;
+
+
 
     private TextView txtMenu;
     private TextView txtDescrip;
@@ -25,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private Typeface Abigail;
     private Typeface April;
     private Typeface kabouter;
+
+
+
+
 
 
     @Override
@@ -38,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         cambiarFont();
 
         bgapp = (ImageView) findViewById(R.id.bgapp);
+
+        campana=(ImageView) findViewById(R.id.campana);
+
+
         clover = (ImageView) findViewById(R.id.clover);
         textsplash = (LinearLayout) findViewById(R.id.textsplash);
         texthome = (LinearLayout) findViewById(R.id.texthome);
@@ -49,6 +62,21 @@ public class MainActivity extends AppCompatActivity {
 
         texthome.startAnimation(frombottom);
         menus.startAnimation(frombottom);
+
+
+        campana.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              setContentView(R.layout.layout_promociones_principal);
+
+
+            }
+        });
+
+
+
+
 
     }
 
