@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-              setContentView(R.layout.layout_promociones_principal);
+              setContentView(R.layout.activity_registro);
 
 
             }
