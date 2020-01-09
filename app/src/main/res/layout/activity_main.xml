@@ -116,12 +116,12 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
-                    android:src="@drawable/bitcon" />
+                    android:src="@drawable/mexico" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BitCoin"
+                    android:text="   Plaza Mexico"
                     android:textColor="#0E1843"
                     android:textSize="22sp" />
 
@@ -140,12 +140,12 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
-                    android:src="@drawable/bellcon" />
+                    android:src="@drawable/antenas" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bells"
+                    android:text="Las Antenas"
                     android:textColor="#0E1843"
                     android:textSize="22sp" />
 
@@ -175,12 +175,12 @@
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
                     android:clickable="false"
-                    android:src="@drawable/bookcon" />
+                    android:src="@drawable/loreto" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Books"
+                    android:text="   Plaza Loreto"
                     android:textColor="#0E1843"
                     android:textSize="22sp" />
 
@@ -198,12 +198,12 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
-                    android:src="@drawable/bugcon" />
+                    android:src="@drawable/tecnologia" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Reports"
+                    android:text="Plaza de La Tecnologia"
                     android:textColor="#0E1843"
                     android:textSize="22sp" />
 
