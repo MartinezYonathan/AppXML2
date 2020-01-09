@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "877039883493",
+    "firebase_url": "https://proyectopromo-55ab0.firebaseio.com",
+    "project_id": "proyectopromo-55ab0",
+    "storage_bucket": "proyectopromo-55ab0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877039883493:android:3336dce3c2f7b93022700c",
+        "android_client_info": {
+          "package_name": "uacm.edu.mx.partipromo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877039883493-5ihuvlt1ui4vti0gkaioc88cmjvsfbrs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uacm.edu.mx.partipromo",
+            "certificate_hash": "5cbcb13d10b3010e6579d12ff5f8540b6ecb0c67"
+          }
+        },
+        {
+          "client_id": "877039883493-8k8enqrs65s5etdhb0qfg03v7dekumak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7yfPupXrvL4xlrUv8XpgCwyBQjEvNQGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "877039883493-8k8enqrs65s5etdhb0qfg03v7dekumak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
