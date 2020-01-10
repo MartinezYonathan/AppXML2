@@ -22,14 +22,9 @@ public class PromoprincipalActivity extends AppCompatActivity {
         burguer = (ImageView) findViewById(R.id.imageView4);
         donal= (ImageView) findViewById(R.id.mcdonal);
 
-
-        Toast.makeText (getApplicationContext (), "Hola Javatpoint2" , Toast.LENGTH_SHORT) .show ();
-
-
         dominos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Hola Javatpoint", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(v.getContext(), DetallepromoActivity.class);
                 intent.putExtra("EnviaPromo","dominos");
                 startActivityForResult(intent, 0);
@@ -39,7 +34,6 @@ public class PromoprincipalActivity extends AppCompatActivity {
         star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Hola Javatpoint", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(v.getContext(),DetallepromoActivity.class);
                 intent.putExtra("EnviaPromo","star");
                 startActivityForResult(intent, 0);
@@ -49,7 +43,6 @@ public class PromoprincipalActivity extends AppCompatActivity {
         burguer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Hola Javatpoint", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(v.getContext(),DetallepromoActivity.class);
                 intent.putExtra("EnviaPromo","burguer");
                 startActivityForResult(intent, 0);
@@ -59,7 +52,6 @@ public class PromoprincipalActivity extends AppCompatActivity {
        donal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Hola Javatpoint", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(v.getContext(),DetallepromoActivity.class);
                 intent.putExtra("EnviaPromo","donal");
                 startActivityForResult(intent, 0);

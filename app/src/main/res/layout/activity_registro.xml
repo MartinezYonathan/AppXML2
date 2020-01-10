@@ -92,10 +92,9 @@
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="35dp"
+        android:layout_width="195dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="20dp"
         android:text="Aviso de privacidad"
         app:layout_constraintEnd_toEndOf="@+id/btnEnviarEmail"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
@@ -155,6 +154,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="Enviar"
+        android:onClick="enviarDatos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -165,12 +165,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
+        android:onClick="tamarFoto"
         android:text="Toma Foto"
         app:layout_constraintStart_toStartOf="@+id/editText"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <ImageView
+        android:id="@+id/imageFoto"
         android:layout_width="195dp"
         android:layout_height="114dp"
         android:layout_marginTop="59dp"

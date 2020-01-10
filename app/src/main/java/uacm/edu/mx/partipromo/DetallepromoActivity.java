@@ -65,7 +65,9 @@ public class DetallepromoActivity extends AppCompatActivity {
         btnEnviarRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_registro);
+                Intent intent = new Intent(v.getContext(),RegistroActivity.class);
+                intent.putExtra("EnviaPromo","burguer");
+                startActivityForResult(intent, 0);
             }
         });
 
