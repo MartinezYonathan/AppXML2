@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView bgapp, clover,campana;
+    ImageView bgapp, clover,campana,plazaMexico,plazaLoreto,plazaTecnologia;
     LinearLayout textsplash, texthome, menus;
     Animation frombottom;
     Button btnRegistrar;
@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         bgapp = (ImageView) findViewById(R.id.bgapp);
 
         campana=(ImageView) findViewById(R.id.campana);
+        plazaLoreto= (ImageView) findViewById(R.id.plazaLoreto);
+        plazaMexico= (ImageView) findViewById(R.id.plazaMex);
+        plazaTecnologia=(ImageView) findViewById(R.id.plazaTec);
 
 
         clover = (ImageView) findViewById(R.id.clover);
@@ -68,9 +71,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-              setContentView(R.layout.activity_registro);
+              setContentView(R.layout.activity_promoprincipal);
+            }
+        });
 
+        plazaLoreto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.activity_promoprincipal);
+            }
+        });
 
+        plazaMexico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.activity_promoprincipal);
+            }
+        });
+
+        plazaTecnologia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.activity_promoprincipal);
             }
         });
 

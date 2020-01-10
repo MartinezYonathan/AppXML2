@@ -113,6 +113,8 @@
 
 
                 <ImageView
+
+                    android:id="@+id/plazaMex"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
@@ -121,7 +123,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="   Plaza Mexico"
+                    android:text="Plaza Mexico"
                     android:textColor="#0E1843"
                     android:textSize="22sp" />
 
@@ -171,10 +173,10 @@
 
 
                 <ImageView
+                    android:id="@+id/plazaLoreto"
                     android:layout_width="82dp"
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"
-                    android:clickable="false"
                     android:src="@drawable/loreto" />
 
                 <TextView
@@ -195,6 +197,7 @@
 
 
                 <ImageView
+                    android:id="@+id/plazaTec"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginBottom="4dp"

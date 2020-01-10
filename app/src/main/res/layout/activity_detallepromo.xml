@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="122dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="127dp"
-        android:layout_marginBottom="47dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginBottom="33dp"
         android:text="Titulo"
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnContinuar"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -24,7 +24,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="41dp"
         android:layout_marginEnd="41dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="19dp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,21 +35,22 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="69dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="41dp"
         android:text="Descripcion"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btnContinuar"
+        app:layout_constraintStart_toStartOf="@+id/btnContinuar"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnContinuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="125dp"
-        android:layout_marginBottom="184dp"
-        android:text="Enviar email"
+        android:layout_marginBottom="307dp"
+        android:text="Continuar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
