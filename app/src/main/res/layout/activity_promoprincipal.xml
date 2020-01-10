@@ -7,68 +7,78 @@
     tools:context=".PromoprincipalActivity">
 
     <TextView
-        android:id="@+id/txtPromociones"
+        android:id="@+id/txtRegsitroUusa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="281dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="36dp"
         android:fontFamily="cursive"
         android:text="Promociones"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
+        android:layout_width="230dp"
         android:layout_height="0dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="66dp"
+        android:layout_marginBottom="86dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toStartOf="@+id/txtPromociones"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRegsitroUusa"
         app:srcCompat="@drawable/toper" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
-        android:layout_height="172dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginEnd="36dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="62dp"
+        android:layout_marginEnd="4dp"
         android:clickable="true"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/mcdonal"
+        app:layout_constraintEnd_toStartOf="@+id/mcdonal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:srcCompat="@drawable/descarga" />
+        app:layout_constraintTop_toTopOf="@+id/mcdonal"
+        app:srcCompat="@drawable/plis" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="61dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="39dp"
         android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/mcdonal"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:srcCompat="@drawable/hutpizza" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="230dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="160dp"
+        android:layout_width="0dp"
+        android:layout_height="125dp"
+        android:layout_marginEnd="44dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPromociones"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/burguer" />
+
+    <ImageView
+        android:id="@+id/mcdonal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="147dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:srcCompat="@drawable/mcd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class PromoprincipalActivity extends AppCompatActivity {
 
-    ImageView dominos, star, burguer;
+    ImageView dominos, star, burguer,donal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,8 @@ public class PromoprincipalActivity extends AppCompatActivity {
         dominos = (ImageView) findViewById(R.id.imageView3);
         star = (ImageView) findViewById(R.id.imageView2);
         burguer = (ImageView) findViewById(R.id.imageView4);
+        donal= (ImageView) findViewById(R.id.mcdonal);
+
 
         Toast.makeText (getApplicationContext (), "Hola Javatpoint2" , Toast.LENGTH_SHORT) .show ();
 
@@ -28,7 +30,8 @@ public class PromoprincipalActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Hola Javatpoint", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(v.getContext(), RegistroActivity.class);
+                Intent intent = new Intent(v.getContext(), DetallepromoActivity.class);
+                intent.putExtra("EnviaPromo","dominos");
                 startActivityForResult(intent, 0);
             }
         });
@@ -36,14 +39,30 @@ public class PromoprincipalActivity extends AppCompatActivity {
         star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_detallepromo);
+                Toast.makeText(getApplicationContext(), "Hola Javatpoint", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(),DetallepromoActivity.class);
+                intent.putExtra("EnviaPromo","star");
+                startActivityForResult(intent, 0);
             }
         });
 
         burguer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_detallepromo);
+                Toast.makeText(getApplicationContext(), "Hola Javatpoint", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(),DetallepromoActivity.class);
+                intent.putExtra("EnviaPromo","burguer");
+                startActivityForResult(intent, 0);
+            }
+        });
+
+       donal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Hola Javatpoint", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(),DetallepromoActivity.class);
+                intent.putExtra("EnviaPromo","donal");
+                startActivityForResult(intent, 0);
             }
         });
 

@@ -65,14 +65,16 @@ public class MainActivity extends AppCompatActivity {
         campana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              setContentView(R.layout.activity_promoprincipal);
+                Intent intent = new Intent(v.getContext(), PromoprincipalActivity.class);
+                startActivityForResult(intent, 0);
             }
         });
 
         plazaLoreto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_promoprincipal);
+                Intent intent = new Intent(v.getContext(), PromoprincipalActivity.class);
+                startActivityForResult(intent, 0);
             }
         });
 
@@ -87,7 +89,8 @@ public class MainActivity extends AppCompatActivity {
         plazaTecnologia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_promoprincipal);
+                Intent intent = new Intent(v.getContext(), PromoprincipalActivity.class);
+                startActivityForResult(intent, 0);
             }
         });
     }

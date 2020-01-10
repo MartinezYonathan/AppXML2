@@ -6,6 +6,11 @@ public class Promocion {
     private String tituloPromoción;
     private String descripcionPromo;
 
+    public Promocion(String tituloPromoción, String descripcionPromo) {
+        this.tituloPromoción = tituloPromoción;
+        this.descripcionPromo = descripcionPromo;
+    }
+
     public String getTituloPromoción() {
         return tituloPromoción;
     }
