@@ -4,7 +4,7 @@ public class Participante {
 
     private String nombre;
     private String apellidos;
-    private int edad;
+    private String edad;
     private String correo;
     private String foto;
 
@@ -24,11 +24,11 @@ public class Participante {
         this.apellidos = apellidos;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -57,5 +57,23 @@ public class Participante {
                 ", correo='" + correo + '\'' +
                 ", foto='" + foto + '\'' +
                 '}';
+    }
+
+    public Participante(String nombre, String apellidos, String edad, String correo, String foto) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.edad = edad;
+        this.correo = correo;
+        this.foto = foto;
+    }
+    public Participante(String nombre, String apellidos, String edad, String correo) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.edad = edad;
+        this.correo = correo;
+
+    }
+
+    public Participante() {
     }
 }

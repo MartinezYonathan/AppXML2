@@ -3,9 +3,11 @@ package uacm.edu.mx.partipromo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import uacm.edu.mx.partipromo.domain.Promocion;
@@ -15,6 +17,8 @@ public class DetallepromoActivity extends AppCompatActivity {
     Button btnEnviarRegistro;
 
     TextView tituloPromo,descripPromo;
+
+    ImageView imagen;
 
 
     @Override
@@ -32,6 +36,7 @@ public class DetallepromoActivity extends AppCompatActivity {
 
         tituloPromo=(TextView) findViewById(R.id.txtTituloPromo);
         descripPromo=(TextView) findViewById(R.id.txtDescripcionPromo);
+        imagen=(ImageView) findViewById(R.id.imageView5);
 
         String nombre=getIntent().getStringExtra("EnviaPromo");
         tituloPromo.setText(nombre);
@@ -40,6 +45,9 @@ public class DetallepromoActivity extends AppCompatActivity {
 
             tituloPromo.setText(promoPizza.getTituloPromoción());
             descripPromo.setText(promoPizza.getDescripcionPromo());
+            //imagen=(ImageView) findViewById(R.id.imageView5);
+            imagen.setImageDrawable(getResources().getDrawable(R.drawable.detalledominos,getApplicationContext().getTheme()));
+
 
         }
 
@@ -47,18 +55,25 @@ public class DetallepromoActivity extends AppCompatActivity {
 
             tituloPromo.setText(promoStarbucks.getTituloPromoción());
             descripPromo.setText(promoStarbucks.getDescripcionPromo());
+            imagen.setImageDrawable(getResources().getDrawable(R.drawable.detallestarbucks,getApplicationContext().getTheme()));
+
+
 
         }
         if(tituloPromo.getText().toString().equals("burguer")){
 
             tituloPromo.setText(promoBurguer.getTituloPromoción());
             descripPromo.setText(promoBurguer.getDescripcionPromo());
+            imagen.setImageDrawable(getResources().getDrawable(R.drawable.detallebk,getApplicationContext().getTheme()));
+
 
         }
         if(tituloPromo.getText().toString().equals("donal")){
 
             tituloPromo.setText(promoMacdonals.getTituloPromoción());
             descripPromo.setText(promoMacdonals.getDescripcionPromo());
+            imagen.setImageDrawable(getResources().getDrawable(R.drawable.detallemc,getApplicationContext().getTheme()));
+
 
         }
 
@@ -66,7 +81,7 @@ public class DetallepromoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),RegistroActivity.class);
-                intent.putExtra("EnviaPromo","burguer");
+                //intent.putExtra("EnviaPromo","burguer");
                 startActivityForResult(intent, 0);
             }
         });

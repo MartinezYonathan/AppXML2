@@ -8,7 +8,9 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -17,6 +19,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import android.view.View.OnClickListener;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -32,8 +36,14 @@ public class RegistroActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private ImageView imageFoto;
+    private EditText nombre, apellido,edad,email;
     private StorageReference mStorageRef;
     Bitmap imageBitmap;
+    String nombreU, apellidoU,edadU,emailU;
+
+    private DatabaseReference myref;
+    Button btnEnvioDatosUser;
+
 
     private CheckBox checkB;
     private Boolean check;
@@ -46,9 +56,53 @@ public class RegistroActivity extends AppCompatActivity {
         imageFoto = (ImageView) findViewById(R.id.imageFoto);
         mStorageRef = FirebaseStorage.getInstance().getReference();
         checkB = (CheckBox) findViewById(R.id.checkBox);
+        nombre= (EditText) findViewById(R.id.edtxtNombre);
+        apellido= (EditText) findViewById(R.id.editTextApellidos);
+        edad= (EditText) findViewById(R.id.editTextEdad);
+        email= (EditText) findViewById(R.id.editTextEmail);
+        btnEnvioDatosUser=(Button) findViewById(R.id.btnEnviarEmail);
+
+        myref= FirebaseDatabase.getInstance().getReference();
+
+
+
+
+
+
 
         addListenerOnChkIos();
+
+      btnEnvioDatosUser.setOnClickListener(new OnClickListener() {
+          @Override
+          public void onClick(View view) {
+
+              nombreU=nombre.getText().toString();
+              apellidoU=apellido.getText().toString();
+              emailU=email.getText().toString();
+              edadU=edad.getText().toString();
+
+
+
+
+              Participante p1= new Participante(nombreU,apellidoU,edadU,emailU);
+
+              if(p1!=null){
+
+                  registrarUsuario();
+
+              }
+              else
+              {
+                  Toast.makeText(getBaseContext(),"debe ingresar datos para registrarlos", Toast.LENGTH_LONG).show();
+              }
+
+              DatabaseReference usuRef=myref.child("p1");
+              usuRef.setValue(p1);
+
+          }
+      });
     }
+
 
     public void addListenerOnChkIos() {
         checkB.setOnClickListener(new OnClickListener() {
@@ -87,9 +141,10 @@ public class RegistroActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), result.toString(), Toast.LENGTH_LONG);*/
     }
 
-    public void subirFoto() {
+    public void subirFoto(View v) {
 
         String timeStamp = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss").format(new Date());
+
 
         // Creamos una referencia a la carpeta y el nombre de la imagen donde se guardara
         StorageReference imagenRef = mStorageRef.child("camara/" + timeStamp + ".jpg");
@@ -123,6 +178,11 @@ public class RegistroActivity extends AppCompatActivity {
             imageBitmap = (Bitmap) extras.get("data");
             imageFoto.setImageBitmap(imageBitmap);
         }
+    }
+
+    public void registrarUsuario(){
+
+
     }
 
 }
