@@ -36,17 +36,14 @@ public class RegistroActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private ImageView imageFoto;
-    private EditText nombre, apellido,edad,email;
+    private EditText nombre, apellido, edad, email;
     private StorageReference mStorageRef;
-    Bitmap imageBitmap;
-    String nombreU, apellidoU,edadU,emailU;
+    private Bitmap imageBitmap = null;
 
     private DatabaseReference myref;
-    Button btnEnvioDatosUser;
-
 
     private CheckBox checkB;
-    private Boolean check;
+    private Boolean check = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,55 +51,17 @@ public class RegistroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         imageFoto = (ImageView) findViewById(R.id.imageFoto);
-        mStorageRef = FirebaseStorage.getInstance().getReference();
         checkB = (CheckBox) findViewById(R.id.checkBox);
-        nombre= (EditText) findViewById(R.id.edtxtNombre);
-        apellido= (EditText) findViewById(R.id.editTextApellidos);
-        edad= (EditText) findViewById(R.id.editTextEdad);
-        email= (EditText) findViewById(R.id.editTextEmail);
-        btnEnvioDatosUser=(Button) findViewById(R.id.btnEnviarEmail);
+        nombre = (EditText) findViewById(R.id.edtxtNombre);
+        apellido = (EditText) findViewById(R.id.editTextApellidos);
+        edad = (EditText) findViewById(R.id.editTextEdad);
+        email = (EditText) findViewById(R.id.editTextEmail);
 
-        myref= FirebaseDatabase.getInstance().getReference();
-
-
-
-
-
-
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+        myref = FirebaseDatabase.getInstance().getReference();
 
         addListenerOnChkIos();
-
-      btnEnvioDatosUser.setOnClickListener(new OnClickListener() {
-          @Override
-          public void onClick(View view) {
-
-              nombreU=nombre.getText().toString();
-              apellidoU=apellido.getText().toString();
-              emailU=email.getText().toString();
-              edadU=edad.getText().toString();
-
-
-
-
-              Participante p1= new Participante(nombreU,apellidoU,edadU,emailU);
-
-              if(p1!=null){
-
-                  registrarUsuario();
-
-              }
-              else
-              {
-                  Toast.makeText(getBaseContext(),"debe ingresar datos para registrarlos", Toast.LENGTH_LONG).show();
-              }
-
-              DatabaseReference usuRef=myref.child("p1");
-              usuRef.setValue(p1);
-
-          }
-      });
     }
-
 
     public void addListenerOnChkIos() {
         checkB.setOnClickListener(new OnClickListener() {
@@ -110,10 +69,8 @@ public class RegistroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //is chkIos checked?
                 if (((CheckBox) v).isChecked()) {
-                    Toast.makeText(getBaseContext(),"Bro, si Android :)", Toast.LENGTH_LONG).show();
                     check = true;
-                }else{
-                    Toast.makeText(getBaseContext(), "Bro, no Android", Toast.LENGTH_LONG);
+                } else {
                     check = false;
                 }
             }
@@ -127,21 +84,23 @@ public class RegistroActivity extends AppCompatActivity {
         }
     }
 
-    public void enviarDatos(View v) {
-        if (check){
-            //Esto solo lo puse de prueba, solo es poner el metodo de subirFoto y el registro  y yaestaria algo funcional
-            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
-        }
-        /*StringBuffer result = new StringBuffer();
-        result.append("\nWindows Mobile check :").append(checkB.isChecked());
+    public void enviar_datos(View v) {
 
-        Toast.makeText(getBaseContext(), result.toString(), Toast.LENGTH_LONG);*/
+        if (check) {
+            //Esto solo lo puse de prueba, solo es poner el metodo de subirFoto y el registro  y yaestaria algo funcional
+            String nombreU = nombre.getText().toString();
+            String apellidoU = apellido.getText().toString();
+            String emailU = email.getText().toString();
+            String edadU = edad.getText().toString();
+
+            registrarUsuario(nombreU, apellidoU, edadU, emailU);
+
+        } else {
+            Toast.makeText(getBaseContext(), "ACEPTA TERMINOS :(", Toast.LENGTH_LONG).show();
+        }
     }
 
-    public void subirFoto(View v) {
+    public void subirFoto() {
 
         String timeStamp = new SimpleDateFormat("dd-MM-yyyy_HH-mm-ss").format(new Date());
 
@@ -180,9 +139,25 @@ public class RegistroActivity extends AppCompatActivity {
         }
     }
 
-    public void registrarUsuario(){
+    public void registrarUsuario(String nombreU, String apellidoU, String edadU, String emailU) {
 
+        if (nombreU.equals("")) {
+            Toast.makeText(getBaseContext(), "ERROR FALTA NOMBRE :(", Toast.LENGTH_LONG).show();
+        } else if (apellidoU.equals("")) {
+            Toast.makeText(getBaseContext(), "ERROR FALTA APELLIDO :(", Toast.LENGTH_LONG).show();
+        } else if (edadU.equals("")) {
+            Toast.makeText(getBaseContext(), "ERROR FALTA EDAD :(", Toast.LENGTH_LONG).show();
+        } else if (emailU.equals("")) {
+            Toast.makeText(getBaseContext(), "ERROR FALTA EMAIL :(", Toast.LENGTH_LONG).show();
+        } else if (imageBitmap == null) {
+            Toast.makeText(getBaseContext(), "ERROR FALTA IMAGEN :(", Toast.LENGTH_LONG).show();
+        } else {
+            DatabaseReference usersRef = myref.child("users");
+            usersRef.push().setValue(new Participante(nombreU, apellidoU, edadU, emailU));
+            subirFoto();
 
+            Toast.makeText(getBaseContext(), "Registrada promocion:)", Toast.LENGTH_LONG).show();
+        }
     }
 
 }
