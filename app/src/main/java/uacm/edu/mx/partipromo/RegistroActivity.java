@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,11 +16,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 import android.view.View.OnClickListener;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -106,7 +111,7 @@ public class RegistroActivity extends AppCompatActivity {
 
 
         // Creamos una referencia a la carpeta y el nombre de la imagen donde se guardara
-        StorageReference imagenRef = mStorageRef.child("camara/" + timeStamp + ".jpg");
+        final StorageReference imagenRef = mStorageRef.child("camara/" + timeStamp + ".jpg");
 
         //Pasamos la imagen a un array de byte
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -115,6 +120,32 @@ public class RegistroActivity extends AppCompatActivity {
 
         // Empezamos con la subida a Firebase
         UploadTask uploadTask = imagenRef.putBytes(datas);
+        /*--------------------------------------------------------------------------*/
+
+        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                if (!task.isSuccessful()) {
+                    throw task.getException();
+                }
+                // Continue with the task to get the download URL
+                return imagenRef.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+                    String profileImageUrl = downloadUri.toString();
+                    Log.e("URL imagen: ", profileImageUrl);
+                } else {
+                    // Handle failures
+                    // ...
+                }
+            }
+        });
+
+        /*--------------------------------------------------------------------------*/
         uploadTask.addOnFailureListener(new OnFailureListener() {
 
             @Override
